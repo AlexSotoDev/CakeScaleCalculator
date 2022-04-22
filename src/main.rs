@@ -1,3 +1,9 @@
+use std::io;
+
 fn main() {
-    println!("Hello, world!");
+    println!("What is your name?");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).unwrap();
+    println!("Hello, {}!", input.trim());
+
 }
