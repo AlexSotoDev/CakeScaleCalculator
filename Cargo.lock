@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "CakeScaleCalculator"
+name = "cake_scale_calculator"
 version = "0.1.0"
