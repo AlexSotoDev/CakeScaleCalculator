@@ -1,14 +1,30 @@
 use std::io;
+use macroquad::prelude::*;
+// fn main() 
+// {
+//     // println!("What is your name?");
+//     // let mut input = String::new();
+//     // io::stdin().read_line(&mut input).unwrap();
+//     // println!("Hello, {}!", input.trim());
+//     println!("Area: {}", calculate_area_pan_circle(8.0));
 
-fn main() 
-{
-    // println!("What is your name?");
-    // let mut input = String::new();
-    // io::stdin().read_line(&mut input).unwrap();
-    // println!("Hello, {}!", input.trim());
-    println!("Area: {}", calculate_area_pan_circle(8.0));
+// }
 
+
+#[macroquad::main("BasicShapes")]
+async fn main() {
+    loop {
+        clear_background(RED);
+
+        draw_line(40.0, 40.0, 100.0, 200.0, 15.0, BLUE);
+        draw_rectangle(screen_width() / 2.0 - 60.0, 100.0, 120.0, 60.0, GREEN);
+        draw_circle(screen_width() - 30.0, screen_height() - 30.0, 15.0, YELLOW);
+        draw_text("HELLO", 20.0, 20.0, 20.0, DARKGRAY);
+
+        next_frame().await
+    }
 }
+
 
 fn calculate_area_pan_rect(pan_width: f32, pan_length: f32)->f32
 {
