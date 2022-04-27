@@ -28,6 +28,12 @@ fn calculate_area_pan_circle(pan_diameter: f32)->f32
     return area;
 }
 
+fn calculate_area_pan_oval(pan_major_radius: f32, pan_minor_radius: f32)->f32
+{
+    let area:f32 = std::f32::consts::PI * ((pan_major_radius/2.0)*(pan_minor_radius/2.0)).powi(2);
+    return area;
+}
+
 enum PanType
 {
     CIRCLE,
