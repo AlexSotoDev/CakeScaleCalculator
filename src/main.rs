@@ -1,5 +1,39 @@
 //use std::io;
-use macroquad::{prelude::{*, scene::clear}, color};
+use macroquad::prelude::*;
+use macroquad::experimental::scene::*;
+
+use macroquad::experimental::{
+    collections::storage,
+    scene::{Node, RefMut},
+};
+
+struct Player {
+    // collider: Actor,
+    // speed: Vec2,
+}
+
+impl Player {
+    pub const JUMP_SPEED: f32 = -700.0;
+    pub const GRAVITY: f32 = 2000.0;
+    pub const MOVE_SPEED: f32 = 300.0;
+
+    fn new() -> Player {
+        // let mut resources = storage::get_mut::<Resources>().unwrap();
+
+        Player 
+        {
+        //     collider: resources.physics.add_actor(vec2(200.0, 100.0), 36, 66),
+        //     speed: vec2(0., 0.),
+        // }
+        }
+    }
+}
+
+// use macroquad::experimental::{
+//     collections::storage,
+//     scene::{Node, RefMut},
+// };
+
 // fn main() 
 // {
 //     // println!("What is your name?");
@@ -11,7 +45,7 @@ use macroquad::{prelude::{*, scene::clear}, color};
 // }
 
 
-#[macroquad::main("BasicShapes")]
+#[macroquad::main("Experimental")]
 async fn main() 
 {
     // loop {
@@ -24,15 +58,27 @@ async fn main()
 
     //     next_frame().await
     // }
+    debug!("main test");
+    
+    let player = Player::new();
+    scene::add_node(player);
+
     loop 
     {
         clear_background(RED);
-        draw_text("hello", 100.0, 100.0, 100.0, color::WHITE);
+        draw_text("Baking Calculator", 100.0, 100.0, 100.0, macroquad::color::WHITE);
         next_frame().await;
 
     }
 }
-
+impl Node for Player
+{
+    fn update(_node: RefMut<Self>)
+    where Self: Sized 
+    {
+        debug!("test");
+    }
+}
 
 fn calculate_area_pan_rect(pan_width: f32, pan_length: f32)->f32
 {
