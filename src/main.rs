@@ -1,5 +1,5 @@
 //use std::io;
-use macroquad::prelude::*;
+use macroquad::{prelude::*, input};
 use macroquad::experimental::scene::*;
 
 use macroquad::experimental::{
@@ -7,21 +7,32 @@ use macroquad::experimental::{
     scene::{Node, RefMut},
 };
 
-struct Player {
+struct Calculator 
+{
     // collider: Actor,
     // speed: Vec2,
 }
 
-impl Player {
-    pub const JUMP_SPEED: f32 = -700.0;
-    pub const GRAVITY: f32 = 2000.0;
-    pub const MOVE_SPEED: f32 = 300.0;
+struct Pan
+{
+    pan: PanType
+}
 
-    fn new() -> Player {
+impl Calculator {
+    // pub const JUMP_SPEED: f32 = -700.0;
+    // pub const GRAVITY: f32 = 2000.0;
+    // pub const MOVE_SPEED: f32 = 300.0;
+
+    fn new() -> Calculator 
+    {
         // let mut resources = storage::get_mut::<Resources>().unwrap();
 
-        Player 
+        Calculator 
         {
+            // fn calculate_area_pan_rect(&self, pan_width: f32, pan_length: f32)->f32
+            // {
+
+            // }
         //     collider: resources.physics.add_actor(vec2(200.0, 100.0), 36, 66),
         //     speed: vec2(0., 0.),
         // }
@@ -60,7 +71,7 @@ async fn main()
     // }
     debug!("main test");
     
-    let player = Player::new();
+    let player = Calculator::new();
     scene::add_node(player);
 
     loop 
@@ -71,12 +82,13 @@ async fn main()
 
     }
 }
-impl Node for Player
+impl Node for Calculator
 {
     fn update(_node: RefMut<Self>)
     where Self: Sized 
     {
-        debug!("test");
+        //debug!("test");
+        debug!("{:?}", input::get_char_pressed());
     }
 }
 
